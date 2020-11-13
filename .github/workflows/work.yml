@@ -1,6 +1,12 @@
 name: 'run'
 
 on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  watch:
+    types: started
   schedule:
     - cron: '30 9,19 * * *'
   workflow_dispatch:
