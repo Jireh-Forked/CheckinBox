@@ -7,6 +7,7 @@ import string
 username = os.environ.get('username_houqijun')
 password = os.environ.get('password_houqijun')
 
+
 class randoms():
     # 获取26个大小写字母
     letters = string.ascii_letters
@@ -24,7 +25,7 @@ def pjCheckin(*args):
         s = requests.Session()
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4298.4 Safari/537.36',
-            'Cookie': 'PHPSESSID='+code(),
+            'Cookie': 'PHPSESSID=' + code(),
             'ContentType': 'text/html;charset=gbk',
             'DNT': '1'
         }
@@ -68,4 +69,6 @@ def code():
 
 if __name__ == "__main__":
     if username:
+        print("----------后期菌开始尝试执行日常任务----------")
         pjCheckin()
+        print("----------后期菌完成日常任务签到----------")
