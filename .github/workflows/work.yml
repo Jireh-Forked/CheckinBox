@@ -42,3 +42,5 @@ jobs:
          python3 ./Checkin52pj/Checkin52pjForSCF.py
          python3 ./smzdmCheckin/smzdmCheckinForSCF.py
          python3 ./NetEase_Music_daily/NetEase_Music_dailyForSCF.py
+         python3 ./CheckinHouqijun/CheckinHouQiJunForSCF.py
+         python3 ./CheckinMoke08/CheckinMoke08ForSCF.py
