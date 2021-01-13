@@ -35,6 +35,8 @@ jobs:
          cookie_smzdm: ${{ secrets.cookie_smzdm }}
          netease_username: ${{ secrets.netease_username }}
          netease_password: ${{ secrets.netease_password }}
+         username_houqijun: ${{ secrets.username_houqijun }}
+         password_houqijun: ${{ secrets.password_houqijun }}
        run: |
          pip3 install -r requirements.txt
          python3 ./Cloud189Checkin/C189CheckinForSCF.py
