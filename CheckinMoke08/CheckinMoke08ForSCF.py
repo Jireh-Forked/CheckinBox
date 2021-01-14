@@ -1,15 +1,6 @@
 # -*- coding: utf8 -*-
-import requests, os
-import time
-import json
-from selenium import webdriver
+import os
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from bs4 import BeautifulSoup
 from selenium import webdriver
 
 username = os.environ.get('username_moke08')
@@ -20,10 +11,14 @@ def login(*args):
     chrome_options = webdriver.ChromeOptions()
     # 使用headless无界面浏览器模式
     chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chromedriver = "/usr/bin/chromedriver"
+    os.environ["webdriver.chrome.driver"] = chromedriver
 
     # 启动浏览器，获取网页源代码
-    browser = webdriver.Chrome(chrome_options=chrome_options)
+    browser = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
     browser.get("https://www.moke08.com/member.php?mod=logging&action=login")
     browser.find_element(By.NAME, "username").send_keys(username)
     browser.find_element(By.NAME, "password").send_keys(password)
