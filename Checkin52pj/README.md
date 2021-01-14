@@ -28,4 +28,4 @@ Headers如果没有Cookie就换另一个Name里面的网页，实在看不懂就
 Cookie过期就必须手动更换，再重复一次获取流程，然后Github到secrets里更新，腾讯云函数就到函数配置中修改环境变量的值
 
 ### 多账户
-每个cookie之间以`|`分割
+每个cookie之间以`\n`换行分割

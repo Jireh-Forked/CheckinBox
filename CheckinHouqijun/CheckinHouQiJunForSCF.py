@@ -6,6 +6,7 @@ import string
 
 username = os.environ.get('username_houqijun')
 password = os.environ.get('password_houqijun')
+SCKEY = os.environ.get('SCKEY')
 
 
 class randoms():
@@ -19,9 +20,8 @@ class randoms():
     digits = string.digits
 
 
-def pjCheckin(*args):
+def main(*args):
     try:
-        SCKEY = os.environ.get('SCKEY')
         s = requests.Session()
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4298.4 Safari/537.36',
@@ -57,6 +57,25 @@ def pjCheckin(*args):
     except:
         print(data)
         print("签到出错")
+
+
+def pjCheckin(*args):
+    msg = ""
+    global username, password
+    ulist = username.split("\n")
+    plist = password.split("\n")
+    if len(ulist) == len(plist):
+        i = 0
+        while i < len(ulist):
+            msg += f"第 {i+1} 个账号开始执行任务\n"
+            username = ulist[i]
+            password = plist[i]
+            msg += main(username, password)
+            i += 1
+    else:
+        msg = "账号密码个数不相符"
+        print(msg)
+    return msg
 
 
 def code():
