@@ -37,7 +37,6 @@ def main(*args):
         else:
             print(c)
     except:
-        print(b)
         print("52pj出错")
         msg += "52pj出错"
     return msg + "\n"

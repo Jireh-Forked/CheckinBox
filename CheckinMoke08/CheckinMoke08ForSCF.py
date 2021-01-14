@@ -23,17 +23,22 @@ def login(*args):
     browser.find_element(By.NAME, "username").send_keys(username)
     browser.find_element(By.NAME, "password").send_keys(password)
     browser.find_element(By.NAME, "loginsubmit").click()
-    browser.implicitly_wait(30)
+    browser.implicitly_wait(60)
     try:
         browser.find_element(By.CSS_SELECTOR, "a:nth-child(11) > font").click()
         browser.find_element(By.CSS_SELECTOR, "#kx img").click()
         browser.find_element(By.CSS_SELECTOR, "label:nth-child(3)").click()
         browser.find_element(By.CSS_SELECTOR, ".pn > strong").click()
     except:
-        print("无法找到签到按钮，或已经签到")
+        print("无法找到签到按钮1，或已经签到")
 
     browser.get("https://www.moke08.com/plugin.php?id=k_misign:sign")
-    browser.find_element(By.ID, "JD_sign").click()
+
+    try:
+        browser.find_element(By.ID, "JD_sign").click()
+    except:
+        print("无法找到签到按钮2，或已经签到")
+
     browser.quit()
 
 
@@ -42,4 +47,3 @@ if __name__ == "__main__":
         print("----------小云社区开始尝试签到----------")
         login()
         print("----------小云社区结束签到----------")
-
