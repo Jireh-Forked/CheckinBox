@@ -1,5 +1,7 @@
 # -*- coding: utf8 -*-
 import os
+
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
@@ -8,17 +10,17 @@ password = os.environ.get('password_moke08')
 
 
 def login(*args):
-    chrome_options = webdriver.ChromeOptions()
+    options = Options()
     # 使用headless无界面浏览器模式
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-dev-shm-usage')
     chromedriver = "/usr/bin/chromedriver"
     os.environ["webdriver.chrome.driver"] = chromedriver
 
     # 启动浏览器，获取网页源代码
-    browser = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
+    browser = webdriver.Chrome(options=options, executable_path=chromedriver)
     browser.get("https://www.moke08.com/member.php?mod=logging&action=login")
     browser.find_element(By.NAME, "username").send_keys(username)
     browser.find_element(By.NAME, "password").send_keys(password)
