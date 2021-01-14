@@ -38,6 +38,8 @@ jobs:
          username_houqijun: ${{ secrets.username_houqijun }}
          password_houqijun: ${{ secrets.password_houqijun }}
        run: |
+         sudo cp -p ./chromedriver /usr/bin/
+         chmod -R 777 /usr/bin/chromedriver
          pip3 install -r requirements.txt
          python3 ./Cloud189Checkin/C189CheckinForSCF.py
          python3 ./FF14Checkin/FF14CheckinForSCF.py
