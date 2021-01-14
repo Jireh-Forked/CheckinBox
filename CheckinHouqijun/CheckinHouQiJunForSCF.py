@@ -21,6 +21,7 @@ class randoms():
 
 
 def main(*args):
+    msg = ""
     try:
         s = requests.Session()
         headers = {
@@ -37,6 +38,7 @@ def main(*args):
         }
 
         login = s.post(url=url, data=loginData, headers=headers)
+        msg += "登录成功！,"
         a = s.get('http://www.houqijun.vip/Center_runQiandao.html',
                   headers=headers)
         data = json.loads(a.text)
@@ -49,14 +51,17 @@ def main(*args):
                     "desp": "后期菌签到成功"
                 }
                 requests.post(scurl, data=data)
+            msg += "后期菌签到成功！,"
             print("后期菌签到成功")
         elif data['code'] == '0':
+            msg += "后期菌重复签到！,"
             print("重复签到")
         else:
             print(data)
-    except:
-        print(data)
-        print("签到出错")
+    except Exception as e:
+        print('repr(e):', repr(e))
+        msg += '运行出错,repr(e):' + repr(e)
+    return msg + "\n"
 
 
 def pjCheckin(*args):
