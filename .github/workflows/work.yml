@@ -32,6 +32,7 @@ jobs:
          password_houqijun: ${{ secrets.password_houqijun }}
          username_moke08: ${{ secrets.username_moke08 }}
          password_moke08: ${{ secrets.password_moke08 }}
+         cookie_52programer: ${{ secrets.cookie_52programer }}
        run: |
          sudo cp -p ./chromedriver /usr/bin/
          chmod -R 777 /usr/bin/chromedriver
@@ -42,3 +43,4 @@ jobs:
          python3 ./NetEase_Music_daily/NetEase_Music_dailyForSCF.py
          python3 ./CheckinHouqijun/CheckinHouQiJunForSCF.py
          python3 ./CheckinMoke08/CheckinMoke08ForSCF.py
+         python3 ./Checkin52Programer/Checkin52ProgramerForSCF.py
