@@ -43,7 +43,7 @@ def main(*args):
                   headers=headers)
         data = json.loads(a.text)
 
-        if data['code'] in 1:
+        if data['code'] == 1:
             if SCKEY:
                 scurl = f"https://sc.ftqq.com/{SCKEY}.send"
                 data = {
@@ -53,7 +53,7 @@ def main(*args):
                 requests.post(scurl, data=data)
             msg += "后期菌签到成功！,"
             print("后期菌签到成功")
-        elif data['code'] in 0:
+        elif data['code'] == 0:
             msg += "后期菌重复签到！,"
             print("后期菌重复签到")
         else:
